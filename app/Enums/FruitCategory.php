@@ -4,12 +4,12 @@ declare(strict_types = 1);
 
 namespace App\Enums;
 
-enum FruitCategories
+enum FruitCategory
 {
     case Exquisite;
     case Delicious;
     case Acceptable;
-    case Poor_Quality;
+    case Poor;
 
     public static function toArray(): array
     {
