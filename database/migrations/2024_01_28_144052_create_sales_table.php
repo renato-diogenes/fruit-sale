@@ -1,5 +1,6 @@
 <?php
 
+use App\Enums\Discount;
 use App\Models\Fruit;
 use App\Models\User;
 use Illuminate\Database\Migrations\Migration;
@@ -18,7 +19,7 @@ return new class extends Migration
 
             $table->unsignedSmallInteger('quantity');
             $table->unsignedDecimal('value', 6, 2);
-            $table->enum('discount', [0, 5, 10, 15, 20, 25]);
+            $table->enum('discount', Discount::toArray());
             $table->timestamp('sold_at');
             $table->timestamps();
 
