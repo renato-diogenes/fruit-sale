@@ -14,7 +14,7 @@ return new class extends Migration
         Schema::create('sales', function (Blueprint $table): void {
             $table->id();
 
-            $foreignUser  = $table->foreignIdFor(User::class);
+            $foreignUser = $table->foreignIdFor(User::class);
             $foreignFruit = $table->foreignIdFor(Fruit::class);
 
             $table->unsignedSmallInteger('quantity');
