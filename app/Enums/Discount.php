@@ -13,6 +13,9 @@ enum Discount: int
     case Higher = 20;
     case Highest = 25;
 
+    /**
+     * @return int[]
+     */
     public static function toArray(): array
     {
         return array_map(

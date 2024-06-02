@@ -11,6 +11,9 @@ enum FruitCategory
     case Acceptable;
     case Poor;
 
+    /**
+     * @return string[]
+     */
     public static function toArray(): array
     {
         return array_map(
