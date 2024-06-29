@@ -18,7 +18,7 @@ return new class extends Migration
             $foreignFruit = $table->foreignIdFor(Fruit::class);
 
             $table->unsignedSmallInteger('quantity');
-            $table->unsignedDecimal('value', 6, 2);
+            $table->decimal('value', 6, 2);
             $table->enum('discount', Discount::toArray());
             $table->timestamp('sold_at');
             $table->timestamps();

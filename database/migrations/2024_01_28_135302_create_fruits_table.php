@@ -15,7 +15,7 @@ return new class extends Migration
             $table->enum('classification', FruitCategory::toArray());
             $table->boolean('fresh');
             $table->unsignedSmallInteger('quantity');
-            $table->unsignedDecimal('price', 6, 2);
+            $table->decimal('price', 6, 2);
             $table->timestamps();
         });
     }
