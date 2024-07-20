@@ -7,6 +7,7 @@ namespace App\Livewire;
 use App\Enums\FruitCategory;
 use App\Models\Fruit;
 use Illuminate\Validation\Rule;
+use Illuminate\Validation\Rules\Enum;
 use Illuminate\View\View;
 use Livewire\Attributes\Validate;
 use Livewire\Component;
@@ -39,6 +40,9 @@ class RegisterFruit extends Component
         $fruit->save();
     }
 
+    /**
+     * @return array<string, Enum>
+     */
     public function rules(): array
     {
         return [
