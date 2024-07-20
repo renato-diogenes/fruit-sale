@@ -7,6 +7,7 @@ namespace Tests\Feature\Livewire;
 use App\Livewire\RegisterFruit;
 use App\Models\Fruit;
 use Illuminate\Foundation\Testing\RefreshDatabase;
+use Illuminate\Validation\Rules\Enum;
 use Livewire\Livewire;
 use Tests\TestCase;
 
@@ -41,7 +42,6 @@ class RegisterFruitTest extends TestCase
         Livewire::test(RegisterFruit::class)
             ->fill($data)
             ->set($attribute, $value)
-            ->call('save')
             ->assertHasErrors([$attribute => [$rule]]);
     }
 
@@ -51,6 +51,8 @@ class RegisterFruitTest extends TestCase
             'Name required' => ['name', '', 'required'],
             'Name min' => ['name', 'ab', 'min'],
             'Name max' => ['name', str_repeat('a', 31), 'max'],
+
+            'classification enum' => ['classification', 'Exotic', Enum::class],
         ];
     }
 }

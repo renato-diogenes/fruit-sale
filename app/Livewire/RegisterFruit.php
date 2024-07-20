@@ -4,7 +4,9 @@ declare(strict_types=1);
 
 namespace App\Livewire;
 
+use App\Enums\FruitCategory;
 use App\Models\Fruit;
+use Illuminate\Validation\Rule;
 use Illuminate\View\View;
 use Livewire\Attributes\Validate;
 use Livewire\Component;
@@ -14,6 +16,7 @@ class RegisterFruit extends Component
     #[Validate('required|min:3|max:30')]
     public string $name;
 
+    #[Validate]
     public string $classification;
 
     public bool $fresh;
@@ -24,8 +27,6 @@ class RegisterFruit extends Component
 
     public function save(): void
     {
-        $this->validate();
-
         $fruit = new Fruit();
 
         $fruit->name = $this->name;
@@ -35,6 +36,13 @@ class RegisterFruit extends Component
         $fruit->price = $this->price;
 
         $fruit->save();
+    }
+
+    public function rules(): array
+    {
+        return [
+            'classification' => Rule::enum(FruitCategory::class),
+        ];
     }
 
     public function render(): View
