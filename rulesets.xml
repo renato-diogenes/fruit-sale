@@ -13,12 +13,13 @@
         <properties>
             <property name="exceptions">
                 <value>
-                  \Illuminate\Support\Facades\Session,
                   \Illuminate\Support\Facades\Auth,
-                  \Illuminate\Support\Facades\RateLimiter,
-                  \Illuminate\Validation\ValidationException,
-                  \Illuminate\Support\Str,
                   \Illuminate\Support\Facades\Broadcast,
+                  \Illuminate\Support\Facades\RateLimiter,
+                  \Illuminate\Support\Facades\Session,
+                  \Illuminate\Support\Str,
+                  \Illuminate\Validation\Rule,
+                  \Illuminate\Validation\ValidationException,
                   \Livewire\Volt\Volt
                 </value>
             </property>
