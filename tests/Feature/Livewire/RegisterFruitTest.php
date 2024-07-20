@@ -53,6 +53,8 @@ class RegisterFruitTest extends TestCase
             'Name max' => ['name', str_repeat('a', 31), 'max'],
 
             'classification enum' => ['classification', 'Exotic', Enum::class],
+
+            'fresh required' => ['fresh', null, 'required'],
         ];
     }
 }
