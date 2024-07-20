@@ -6,10 +6,12 @@ namespace App\Livewire;
 
 use App\Models\Fruit;
 use Illuminate\View\View;
+use Livewire\Attributes\Validate;
 use Livewire\Component;
 
 class RegisterFruit extends Component
 {
+    #[Validate('required')]
     public string $name;
 
     public string $classification;
@@ -22,6 +24,8 @@ class RegisterFruit extends Component
 
     public function save(): void
     {
+        $this->validate();
+
         $fruit = new Fruit();
 
         $fruit->name = $this->name;
