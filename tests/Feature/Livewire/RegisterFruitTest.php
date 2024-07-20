@@ -49,6 +49,7 @@ class RegisterFruitTest extends TestCase
     {
         return [
             'Name required' => ['name', '', 'required'],
+            'Name min' => ['name', 'ab', 'min'],
         ];
     }
 }
