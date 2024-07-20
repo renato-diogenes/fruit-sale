@@ -50,6 +50,7 @@ class RegisterFruitTest extends TestCase
         return [
             'Name required' => ['name', '', 'required'],
             'Name min' => ['name', 'ab', 'min'],
+            'Name max' => ['name', str_repeat('a', 31), 'max'],
         ];
     }
 }

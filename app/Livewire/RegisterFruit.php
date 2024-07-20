@@ -11,7 +11,7 @@ use Livewire\Component;
 
 class RegisterFruit extends Component
 {
-    #[Validate('required|min:3')]
+    #[Validate('required|min:3|max:30')]
     public string $name;
 
     public string $classification;
