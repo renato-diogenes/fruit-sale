@@ -55,6 +55,8 @@ class RegisterFruitTest extends TestCase
             'classification enum' => ['classification', 'Exotic', Enum::class],
 
             'fresh required' => ['fresh', null, 'required'],
+
+            'quantity required' => ['quantity', null, 'required'],
         ];
     }
 }
