@@ -23,7 +23,7 @@ class RegisterFruit extends Component
     #[Validate('required')]
     public bool $fresh;
 
-    #[Validate('required')]
+    #[Validate('required|integer|min:1')]
     public int $quantity;
 
     public float $price;

@@ -57,6 +57,7 @@ class RegisterFruitTest extends TestCase
             'fresh required' => ['fresh', null, 'required'],
 
             'quantity required' => ['quantity', null, 'required'],
+            'quantity min' => ['quantity', 0, 'min'],
         ];
     }
 }
