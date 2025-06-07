@@ -3,6 +3,7 @@
 namespace App\Models;
 
 use App\Enums\Role;
+use Database\Factories\UserFactory;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
@@ -11,6 +12,8 @@ use Laravel\Sanctum\HasApiTokens;
 
 /**
  * @property Role $role
+ *
+ * @method UserFactory factory()
  */
 class User extends Authenticatable implements MustVerifyEmail
 {

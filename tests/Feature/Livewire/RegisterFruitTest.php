@@ -22,7 +22,6 @@ class RegisterFruitTest extends TestCase
 
         $this->actingAs($user);
 
-        /** @var Fruit $fruit */
         $fruit = Fruit::factory()->make();
 
         $data = $fruit->only('name', 'classification', 'fresh', 'quantity', 'price');
@@ -41,7 +40,6 @@ class RegisterFruitTest extends TestCase
 
         $this->actingAs($user);
 
-        /** @var Fruit $fruit */
         $fruit = Fruit::factory()->make();
 
         $data = $fruit->only('name', 'classification', 'fresh', 'quantity', 'price');
