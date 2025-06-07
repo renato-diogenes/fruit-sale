@@ -26,7 +26,7 @@ class RegisterFruit extends Component
     #[Validate('required|integer|min:1|max:65535')]
     public int $quantity;
 
-    #[validate('required|numeric|min:0')]
+    #[validate('required|numeric|min:0|max:999')]
     public float $price;
 
     public function save(): void

@@ -62,6 +62,7 @@ class RegisterFruitTest extends TestCase
 
             'price required' => ['price', null, 'required'],
             'price min' => ['price', -1, 'min'],
+            'price max' => ['price', 1000, 'max'],
         ];
     }
 }
