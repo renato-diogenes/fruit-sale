@@ -15,6 +15,7 @@
                 <value>
                   \Illuminate\Support\Facades\Auth,
                   \Illuminate\Support\Facades\Broadcast,
+                  \Illuminate\Support\Facades\Gate,
                   \Illuminate\Support\Facades\RateLimiter,
                   \Illuminate\Support\Facades\Session,
                   \Illuminate\Support\Str,
