@@ -6,6 +6,7 @@ namespace Tests\Feature\Livewire;
 
 use App\Livewire\RegisterFruit;
 use App\Models\Fruit;
+use App\Models\User;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use Illuminate\Validation\Rules\Enum;
 use Livewire\Livewire;
@@ -17,6 +18,10 @@ class RegisterFruitTest extends TestCase
 
     public function test_component_can_register_fruit(): void
     {
+        $user = User::factory()->create();
+
+        $this->actingAs($user);
+
         /** @var Fruit $fruit */
         $fruit = Fruit::factory()->make();
 
@@ -24,9 +29,29 @@ class RegisterFruitTest extends TestCase
 
         Livewire::test(RegisterFruit::class)
             ->fill($data)
-            ->call('save');
+            ->call('save')
+            ->assertOk();
 
         $this->assertDatabaseHas(Fruit::class, $data);
+    }
+
+    public function test_only_managers_can_register_fruits(): void
+    {
+        $user = User::factory()->seller()->create();
+
+        $this->actingAs($user);
+
+        /** @var Fruit $fruit */
+        $fruit = Fruit::factory()->make();
+
+        $data = $fruit->only('name', 'classification', 'fresh', 'quantity', 'price');
+
+        Livewire::test(RegisterFruit::class)
+            ->fill($data)
+            ->call('save')
+            ->assertForbidden();
+
+        $this->assertDatabaseMissing(Fruit::class, ['name' => $fruit->name]);
     }
 
     /**

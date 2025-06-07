@@ -31,6 +31,8 @@ class RegisterFruit extends Component
 
     public function save(): void
     {
+        $this->authorize('manage');
+
         $fruit = new Fruit();
 
         $fruit->name = $this->name;
