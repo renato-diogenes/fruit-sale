@@ -13,7 +13,7 @@
         <properties>
             <property name="exceptions">
                 <value>
-                  \App\Models\Fruit
+                  \App\Models\Fruit,
                   \Illuminate\Support\Facades\Auth,
                   \Illuminate\Support\Facades\Broadcast,
                   \Illuminate\Support\Facades\Gate,
