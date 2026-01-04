@@ -10,10 +10,12 @@ class SellFruit extends Component
 {
     public int $page = 1;
 
+    public int $perPage = 10;
+
     public function render(): View
     {
         return view('livewire.sell-fruit', [
-            'fruits' => Fruit::paginate(10, page: $this->page),
+            'fruits' => Fruit::paginate($this->perPage, page: $this->page),
         ]);
     }
 }

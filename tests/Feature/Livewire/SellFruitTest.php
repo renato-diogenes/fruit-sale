@@ -34,4 +34,21 @@ class SellFruitTest extends TestCase
             ->assertDontSee($fruits2->toArray())
             ->assertSee($fruits3->toArray());
     }
+
+    public function test_the_amount_of_fruits_shown_per_page_can_be_changed(): void
+    {
+        $fruits = Fruit::factory()->count(25)->create();
+
+        $fruits1 = $fruits->forPage(1, 20)->pluck('name');
+        $fruits2 = $fruits->forPage(2, 20)->pluck('name');
+
+        Livewire::test(SellFruit::class)
+            ->assertSet('perPage', 10)
+            ->set('perPage', 20)
+            ->assertSee($fruits1->toArray())
+            ->assertDontSee($fruits2->toArray())
+            ->set('page', 2)
+            ->assertDontSee($fruits1->toArray())
+            ->assertSee($fruits2->toArray());
+    }
 }
