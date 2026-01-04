@@ -1,6 +1,6 @@
 <?php
 
-namespace Tests\Feature\Livewire;
+namespace Tests\Feature\Livewire\SellFruit;
 
 use App\Livewire\SellFruit;
 use App\Models\Fruit;
@@ -8,7 +8,7 @@ use Illuminate\Foundation\Testing\RefreshDatabase;
 use Livewire\Livewire;
 use Tests\TestCase;
 
-class SellFruitTest extends TestCase
+class ListTest extends TestCase
 {
     use RefreshDatabase;
 
