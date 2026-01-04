@@ -14,9 +14,24 @@ class SellFruitTest extends TestCase
 
     public function test_component_can_list_fruits(): void
     {
-        $fruit = Fruit::factory()->create();
+        $fruits = Fruit::factory()->count(25)->create();
+
+        $fruits1 = $fruits->forPage(1, 10)->pluck('name');
+        $fruits2 = $fruits->forPage(2, 10)->pluck('name');
+        $fruits3 = $fruits->forPage(3, 10)->pluck('name');
 
         Livewire::test(SellFruit::class)
-            ->assertSee($fruit->name);
+            ->assertSet('page', 1)
+            ->assertSee($fruits1->toArray())
+            ->assertDontSee($fruits2->toArray())
+            ->assertDontSee($fruits3->toArray())
+            ->set('page', 2)
+            ->assertDontSee($fruits1->toArray())
+            ->assertSee($fruits2->toArray())
+            ->assertDontSee($fruits3->toArray())
+            ->set('page', 3)
+            ->assertDontSee($fruits1->toArray())
+            ->assertDontSee($fruits2->toArray())
+            ->assertSee($fruits3->toArray());
     }
 }

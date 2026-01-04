@@ -13,7 +13,7 @@ class FruitFactory extends Factory
     public function definition(): array
     {
         return [
-            'name' => fake()->randomElement(['banana', 'apple', 'orange']),
+            'name' => fake()->name(),
             'classification' => fake()->randomElement(FruitCategory::toArray()),
             'fresh' => fake()->boolean(),
             'quantity' => fake()->randomDigit(),
